@@ -1,4 +1,4 @@
-public class ReflectionTest {
+public class ReflectionTestTask {
     private int MEGA_NUMBER = 24;
 
     private int getMegaNumber() {
