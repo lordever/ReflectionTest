@@ -1,6 +1,6 @@
 import java.lang.reflect.Field;
 
-public class MainDemo {
+public class Main {
     public static void main(String args[]) {
         try {
             start();
@@ -10,20 +10,20 @@ public class MainDemo {
     }
 
     private static void start() throws NoSuchFieldException, IllegalAccessException {
-        ReflectionTestTask reflectionTask = getReflectionTask();
+        ReflectionTest reflectionTask = getReflectionTask();
         Field field = getFieldFromReflectionTask(reflectionTask);
         setAttributeAndOutResult(field, reflectionTask);
     }
 
-    private static ReflectionTestTask getReflectionTask() {
-        return new ReflectionTestTask();
+    private static ReflectionTest getReflectionTask() {
+        return new ReflectionTest();
     }
 
-    private static Field getFieldFromReflectionTask(ReflectionTestTask reflectionTask) throws NoSuchFieldException {
+    private static Field getFieldFromReflectionTask(ReflectionTest reflectionTask) throws NoSuchFieldException {
         return reflectionTask.getClass().getDeclaredField("MEGA_NUMBER");
     }
 
-    private static void setAttributeAndOutResult(Field field, ReflectionTestTask reflectionTask) throws IllegalAccessException {
+    private static void setAttributeAndOutResult(Field field, ReflectionTest reflectionTask) throws IllegalAccessException {
         field.setAccessible(true);
         field.setInt(reflectionTask, 42);
         System.out.println(reflectionTask.checkMegaNumber());
